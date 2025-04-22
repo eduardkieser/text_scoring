@@ -1,7 +1,5 @@
 # Continuous monitoring of the quality of output of a multilingual ASR service, and strategies to improve
 
-First some assumptions:
-
 ## Error analysis
 
 ### Challenge 1: Identifying errors in the output without a ground truth label for everything.  
