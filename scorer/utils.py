@@ -1,4 +1,4 @@
-import openai
+from openai import OpenAI
 import editdistance
 import json
 import os
@@ -57,7 +57,10 @@ def generate_aligned_sentences(label_text, predicted_text):
         raise ValueError("OpenAI API key is not set. Please check the 'mykey' file.")
         
     prompt = compose_alignment_prompt(label_text, predicted_text)
-    response = openai.chat.completions.create(
+
+    client = OpenAI()
+
+    response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
         response_format={"type": "json_object"}
